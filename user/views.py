@@ -4,6 +4,19 @@ from .forms import CreateUserForm, LoginForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib.auth import logout, login, authenticate
 # from django.urls import reverse
 from django.contrib import messages
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def protected_view(request):
+    return Response({"message": "This is a protected view."})
+
+@api_view(['GET'])
+def public_view(request):
+    return Response({"message": "This is a public view."})
+
 
 # Create your views here.
 

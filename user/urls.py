@@ -7,4 +7,6 @@ urlpatterns = [
     path('', views.loginView, name='user-login'),
     path('profile/', views.profile, name='user-profile'),
     path('profile/update', views.profileUpdate, name='user-profileUpdate'),
+    path('api/public/', views.public_view, name='public'),
+    path('api/protected/', views.protected_view, name='protected'),
 ]
